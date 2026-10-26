@@ -1,0 +1,26 @@
+﻿@model NewsClientApp.Data.News
+
+@{
+    ViewData["Title"] = "Редактирование новости";
+}
+
+<h2 class="h2">Редактирование новости</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Заголовок</label>
+        <input type="text" name="Title" class="form-control" id="exampleInputEmail1" value="@Model?.Title">
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Категория</label>
+        <input type="text" name="Category" class="form-control" id="exampleInputPassword1" value="@Model?.Category">
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputContent" class="form-label">Текст новости</label>
+        <textarea name="Content" class="form-control" id="exampleInputContent" rows="4">@Model?.Content</textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+</form>

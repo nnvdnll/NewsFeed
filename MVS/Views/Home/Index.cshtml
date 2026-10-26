@@ -1,0 +1,44 @@
+﻿@model List<MVS.Data.News>
+
+@{
+    ViewData["Title"] = "Лента новостей";
+}
+
+<a href="/home/add"><button class="btn btn-primary mb-3">Новая новость</button></a>
+
+<form method="post" class="row row-cols-lg-auto g-3 align-items-center mb-4">
+    <div class="col-12">
+        <label for="exampleInputEmail1" class="form-label">Заголовок</label>
+        <input type="text" name="Title" class="form-control" id="exampleInputEmail1" placeholder="Заголовок">
+    </div>
+
+    <div class="col-12">
+        <label for="exampleInputPassword1" class="form-label">Категория</label>
+        <input type="text" name="Category" class="form-control" id="exampleInputPassword1" placeholder="Категория">
+    </div>
+
+    <div class="col-12 align-self-end">
+        <button type="submit" class="btn btn-primary">Искать</button>
+    </div>
+</form>
+
+<table class="table">
+    <tr>
+        <th>Заголовок</th>
+        <th>Категория</th>
+        <th>Текст новости</th>
+        <th>Действия</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Title</td>
+            <td>@item.Category</td>
+            <td>@item.Content</td>
+            <td>
+                <a href="/home/edit/@item.Id">Редактировать</a>
+                <a href="/home/remove/@item.Id">Удалить</a>
+            </td>
+        </tr>
+    }
+</table>

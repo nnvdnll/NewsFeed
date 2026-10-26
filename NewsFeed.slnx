@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="MVS/MVS.csproj" />
+  <Project Path="NewsClientApp/NewsClientApp.csproj" Id="fd7624f4-2459-4674-a1cb-08245f1c6f42" />
+  <Project Path="NewsWebApi/NewsWebApi.csproj" />
+</Solution>

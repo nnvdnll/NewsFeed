@@ -1,0 +1,38 @@
+﻿@model List<NewsClientApp.Data.Source>
+@{
+    ViewData["Title"] = "Новая новость";
+}
+
+<h2 class="h2">Создание новой новости</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label for="exampleInputTitle" class="form-label">Заголовок новости</label>
+        <input type="text" name="Title" class="form-control" id="exampleInputTitle" placeholder="Введите заголовок">
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputCategory" class="form-label">Категория</label>
+        <input type="text" name="Category" class="form-control" id="exampleInputCategory" placeholder="Например: Технологии">
+    </div>
+
+    
+    <div class="mb-3">
+        <label for="exampleInputCategory" class="form-label">Источник</label>
+        <select name="SourceId" class="form-control">
+            @foreach(var Source in Model)
+            {
+
+                         <option value="@Source.Id">@Source.Name</option>
+            }              
+        </select>
+    </div>
+
+
+    <div class="mb-3">
+        <label for="exampleInputContent" class="form-label">Текст новости</label>
+        <textarea name="Content" class="form-control" id="exampleInputContent" rows="4" placeholder="Введите текст новости"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Создать</button>
+</form>
