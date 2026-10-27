@@ -8,7 +8,10 @@ namespace NewsClientApp.Data
         [Key]
         public int Id { get; set; }
         public string Title { get; set; }
+        public string Email { get; set; }
+
         public string Category { get; set; }
+
 
         [ForeignKey(nameof(Source))]
         public int SourceId { get; set; }

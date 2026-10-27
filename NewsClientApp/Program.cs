@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using NewsClientApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,14 @@ builder.Services.AddHttpClient<NewsClientServices>(x =>
 {
     x.BaseAddress = new Uri("https://localhost:7178");
 });
+
+// Установка конфигурации подключения
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+.AddCookie(options => //CookieAuthenticationOptions
+{
+    options.LoginPath = new PathString("/Account/Login");
+});
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
@@ -26,6 +35,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

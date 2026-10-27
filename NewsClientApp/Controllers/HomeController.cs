@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NewsClientApp.Data;
 using NewsClientApp.Models;
@@ -7,6 +8,7 @@ using System.Text.Json;
 
 namespace NewsClientApp.Controllers
 {
+    [Authorize] // нужна для того , что бы только авторизованные пользователи могли видеть содержимое
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

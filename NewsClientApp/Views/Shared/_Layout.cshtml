@@ -22,9 +22,20 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                        <li>@User.Identity.Name</li>
+                        
+                        @if (User.Identity.IsAuthenticated) // проверяем , аутенфицирован пользователь или нет ( на любом логине)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="LogOut">Выход</a>
+                            </li>
+                        }
+                        else  // еслм нет
+                            {
+                            <li class= "nav-item" >
+                                <a class="nav-link text-dark" asp-area = "" asp-controller = "Account" asp-action="Login"> Авторизация </a>
+                             </li >
+                            }  
                     </ul>
                 </div>
             </div>

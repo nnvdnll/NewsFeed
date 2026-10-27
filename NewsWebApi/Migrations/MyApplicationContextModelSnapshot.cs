@@ -41,7 +41,7 @@ namespace NewsWebApi.Migrations
 
                     b.HasIndex("SourceId");
 
-                    b.ToTable("News");
+                    b.ToTable("News", (string)null);
                 });
 
             modelBuilder.Entity("NewsWebApi.Data.Source", b =>
@@ -56,7 +56,7 @@ namespace NewsWebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("sources");
+                    b.ToTable("sources", (string)null);
                 });
 
             modelBuilder.Entity("NewsWebApi.Data.News", b =>

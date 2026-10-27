@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NewsWebApi.Data;
 using NewsWebApi.Models;
@@ -8,6 +9,7 @@ namespace NewsWebApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+[Authorize]
 
 public class SourceController : ControllerBase
 {
